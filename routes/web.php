@@ -27,5 +27,5 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::get('/posts', [PostsController::class, 'indexPosts'])->name('postsScreen');
 
-Route::get('/post/:id', [PostController::class, 'indexPost'])->name('postScreen');
+Route::get('/post', [PostController::class, 'indexPost'])->name('postScreen');
 

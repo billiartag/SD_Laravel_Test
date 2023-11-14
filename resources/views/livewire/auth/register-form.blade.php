@@ -34,7 +34,7 @@
         </button>
     </form>
 
-    @if(session()->has('message'))
-        <p>{{ session('message') }}</p>
+    @if(session()->has('error'))
+        <p class="text-lg text-bold text-red-500 ">{{ session('error') }}</p>
     @endif
 </div>

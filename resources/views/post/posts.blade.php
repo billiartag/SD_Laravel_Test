@@ -8,15 +8,20 @@
     <title>Home | Posts</title>
 </head>
 <body>
-<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-        <form action="http://127.0.0.1:8000/logout" method="post">
+<div class="min-h-screen bg-gray-100 p-2 flex flex-col">
+    <div class="relative sm:max-w-xl ">
+        <form action="{{ url('/logout') }}" method="post">
             @csrf
             <button
                 class="btn"
                 type="submit">Logout
             </button>
         </form>
+    </div>
+    <div class="relative my-2">
+        @for ($i = 0; $i < 10; $i++)
+            <livewire:post/>
+        @endfor
     </div>
 </div>
 </body>
