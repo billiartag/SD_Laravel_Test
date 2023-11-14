@@ -1,0 +1,4 @@
+.formInput {
+    @apply py-2 px-4 rounded-md outline outline-1  outline-offset-2;
+}
+

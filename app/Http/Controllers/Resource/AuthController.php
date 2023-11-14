@@ -40,19 +40,22 @@ class AuthController extends Controller
 
     public function logout()
     {
-        $user = auth('sanctum')->user();
-        $result = $user->currentAccessToken()->delete();
+        try {
+            $user = auth('sanctum')->user();
+            $result = $user->currentAccessToken()->delete();
 
-        if ($result) {
+            if ($result) {
 
-            return $this->respondWithSuccess([
-                'message' => 'Sukses',]);
-        } else {
+                return $this->respondWithSuccess([
+                    'message' => 'Sukses',]);
+            } else {
+
+                return $this->respondError('Sistem gagal untuk logout');
+            }
+        } catch (e) {
 
             return $this->respondError('Sistem gagal untuk logout');
         }
-
-
     }
 
     public function register(Request $request)

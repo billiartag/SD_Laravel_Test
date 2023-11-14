@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Post\PostController;
+use App\Http\Controllers\Post\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
 /// Auth
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/', 'indexLogin')->name('loginScreen');
 
-
+    Route::post('/logout', 'logout')->name('logout');
 });
+
+Route::get('/posts', [PostsController::class, 'indexPosts'])->name('postsScreen');
+
+Route::get('/post/:id', [PostController::class, 'indexPost'])->name('postScreen');
+
