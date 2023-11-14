@@ -23,13 +23,21 @@
         </form>
     </div>
     <div class="relative my-2">
-
-        <livewire:post/>
+        <livewire:post
+            :id="$post['id']"
+            :title="$post['title']"
+            :author="$post['author_name']"
+            :content="$post['content']"
+        />
     </div>
     <div class="relative my-2">
         <livewire:comment-form/>
-        @for ($i = 0; $i < 10; $i++)
-            <livewire:comment/>
+        @for ($i = 0; $i < count($comments); $i++)
+            <livewire:comment
+                :id="$comments[$i]['id']"
+                :author="$comments[$i]['author_id']"
+                :comment="$comments[$i]['comment']"
+            />
         @endfor
     </div>
 </div>

@@ -6,13 +6,12 @@ use Livewire\Component;
 
 class Comment extends Component
 {
+    public $id;
     public $author;
     public $comment;
 
     public function render()
     {
-        $this->author = 'author';
-        $this->comment = 'comments';
         return view('livewire.comment');
     }
 

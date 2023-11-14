@@ -19,9 +19,7 @@
         </form>
     </div>
     <div class="relative my-2">
-        @for ($i = 0; $i < 10; $i++)
-            <livewire:post/>
-        @endfor
+        <livewire:post-list/>
     </div>
 </div>
 </body>

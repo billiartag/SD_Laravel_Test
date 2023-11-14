@@ -75,7 +75,22 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+        $result = [
+            'id' => $comment->id,
+            'author_id' => $comment->author_id,
+            'author_name' => $comment->author->name,
+            'author_email' => $comment->author->email,
+            'comment' => $comment->comment,
+            'publish_date' => $comment->publish_date,
+            'update_date' => $comment->update_date,
+            'status' => $comment->status,
+        ];
+
+        return $this->respondWithSuccess([
+                'message' => 'success',
+                'comment' => $result,
+            ]
+        );
     }
 
     /**
